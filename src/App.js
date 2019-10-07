@@ -18,21 +18,17 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
-		setCart([...cart,item])
-		// if(cart.length===0){
-		// 	setCart([...cart,item])
-
-		// }else{
-
-		// cart.forEach(oldItem=>{
-		// 	if (item.id===oldItem.id){
-		// 		console.log('this is already in here')
-		// 	}else{
-		// 		setCart([...cart,item])
-		// 	}
-			
-		// })}
-		// console.log(item)
+		// setCart([...cart,item])
+		if(cart.length===0){
+			setCart([...cart,item])
+		}else{
+			for(let i=0; i<cart.length; i++ ){
+				if (item.id===cart[i].id){
+					return null
+				}
+			}
+			setCart([...cart,item])
+		}
 	};
 	const removeItem = id => {
 		console.log(cart)
